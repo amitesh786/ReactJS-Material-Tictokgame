@@ -6,6 +6,8 @@ import './index.css';
 
 import App from './App';
 import Game from './Game/Game';
+import Error from './Login/Error';
+
 import PageNotFound from './PageNotFound/PageNotFound';
 
 import * as serviceWorker from './serviceWorker';

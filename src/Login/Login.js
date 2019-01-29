@@ -4,30 +4,43 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
+import Error, { openSnackbar } from './Error';
+
 import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 
-    state = {
-        redirect: false
-    }
-
     constructor(props) {
         super(props);
+
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            redirect: false
         };
+
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(event) {
         var self = this;
 
+        if (self.state.username) {
+            openSnackbar({ message: 'Empty field. Enter username.' });
+        }
+
+        if (!!self.state.username && self.state.password) {
+            openSnackbar({ message: 'Empty field. Enter password.' });
+        }
+
         if ((self.state.username === 'amitesh23' && self.state.password === 'password')) {
-            this.setState({ redirect: true });
+
+            openSnackbar({ message: 'Successfully...!!!' });
+            self.setState({ redirect: true });
+
         } else {
-            this.setState({redirect: false});
+            self.setState({ redirect: false });
+            openSnackbar({ message: 'Incorrect username and password.' });
         }
     }
 
@@ -45,6 +58,9 @@ class Login extends Component {
                         <AppBar
                             title="Login WebApp"
                         />
+
+                        <Error />
+
                         <TextField style={style.TextField}
                             hintText="Enter your Username"
                             floatingLabelText="Username"
@@ -60,7 +76,12 @@ class Login extends Component {
                         />
                         <br />
 
-                        <RaisedButton label="Submit" primary={true} style={style.RaisedButton} onClick={(event) => this.handleClick(event)}></RaisedButton>
+                        <RaisedButton 
+                            label="Submit" 
+                            primary={true} 
+                            style={style.RaisedButton}
+                            onClick={(event) => this.handleClick(event)}
+                        />
 
                     </div>
                 </MuiThemeProvider>
