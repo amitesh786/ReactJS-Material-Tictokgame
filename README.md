@@ -15,7 +15,7 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://github.com/amitesh786) for more information.
+See the section about [running tests](https://github.com/amitesh786/ReactJS-Material-Tictokgame) for more information.
 
 ### `npm run build`
 
@@ -25,8 +25,12 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
-See the section about [deployment](https://github.com/amitesh786) for more information.
+See the section about [deployment](https://github.com/amitesh786/ReactJS-Material-Tictokgame) for more information.
 
-## Learn More
+## If you want to change username and password
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Go to Login folder and login.js file contain handleClick function updated
+
+* By default 
+```username - amitesh23```
+```password - password```
