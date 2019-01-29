@@ -1,0 +1,9 @@
+.game {
+    top: 200%;
+    left: 40%;
+    position: absolute;
+}
+
+.game-info {
+    margin-left: 20px;
+}
