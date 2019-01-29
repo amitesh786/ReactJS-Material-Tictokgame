@@ -3,7 +3,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-
 import Error, { openSnackbar } from './Error';
 
 import { Redirect } from 'react-router-dom';
@@ -25,22 +24,24 @@ class Login extends Component {
     handleClick(event) {
         var self = this;
 
-        if (self.state.username) {
+        //  Validation for username 
+        if (self.state.username && self.state.username != "") {
             openSnackbar({ message: 'Empty field. Enter username.' });
         }
 
-        if (!!self.state.username && self.state.password) {
+        //  Validation for password 
+        if (self.state.password && self.state.password != "") {
             openSnackbar({ message: 'Empty field. Enter password.' });
         }
 
+        //  Validation for username & password
         if ((self.state.username === 'amitesh23' && self.state.password === 'password')) {
-
             openSnackbar({ message: 'Successfully...!!!' });
             self.setState({ redirect: true });
 
         } else {
-            self.setState({ redirect: false });
             openSnackbar({ message: 'Incorrect username and password.' });
+            self.setState({ redirect: false });
         }
     }
 
@@ -58,7 +59,6 @@ class Login extends Component {
                         <AppBar
                             title="Login WebApp"
                         />
-
                         <Error />
 
                         <TextField style={style.TextField}

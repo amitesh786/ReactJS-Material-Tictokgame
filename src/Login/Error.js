@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import Snackbar from 'material-ui/core/Snackbar';
-import { SnackbarProvider } from 'material-ui-snackbar-provider';
+import Snackbar from 'material-ui/Snackbar';
 
 let openSnackbarFn;
 
@@ -39,10 +38,10 @@ class Error extends Component {
         );
         
         return (
-            <SnackbarProvider
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            <Snackbar
+                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                 message={message}
-                autoHideDuration={3000}
+                autoHideDuration={5000}
                 onClose={this.handleSnackbarClose}
                 open={this.state.open}
                 SnackbarContentProps={{
