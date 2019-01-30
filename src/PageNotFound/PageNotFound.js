@@ -18,6 +18,7 @@ const PageNotFound = () => (
                 <h1 as="h1">404</h1>
                 <p>Uh oh! Are you sure you wanted to go here?</p>
             </div>
+            
         </MuiThemeProvider>
     </div>
 );

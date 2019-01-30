@@ -21,27 +21,36 @@ class Login extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.handleClick(nextProps);
+    }
+
     handleClick(event) {
         var self = this;
 
         //  Validation for username 
-        if (self.state.username && self.state.username != "") {
-            openSnackbar({ message: 'Empty field. Enter username.' });
+        if (self.state.username === "") {
+            openSnackbar({ message: 'Enter username first.' });
+            return;
         }
 
         //  Validation for password 
-        if (self.state.password && self.state.password != "") {
-            openSnackbar({ message: 'Empty field. Enter password.' });
+        if (self.state.password === "") {
+            openSnackbar({ message: 'Enter password first.' });
+            return;
         }
 
         //  Validation for username & password
         if ((self.state.username === 'amitesh23' && self.state.password === 'password')) {
+
             openSnackbar({ message: 'Successfully...!!!' });
             self.setState({ redirect: true });
+            return;
 
         } else {
             openSnackbar({ message: 'Incorrect username and password.' });
             self.setState({ redirect: false });
+            return;
         }
     }
 
@@ -49,6 +58,7 @@ class Login extends Component {
         const { redirect } = this.state;
 
         if (redirect) {
+            this.props = this.state;
             return <Redirect to='/game' />;
         }
 
@@ -82,6 +92,7 @@ class Login extends Component {
                             style={style.RaisedButton}
                             onClick={(event) => this.handleClick(event)}
                         />
+                        {this.state.redirect}
 
                     </div>
                 </MuiThemeProvider>

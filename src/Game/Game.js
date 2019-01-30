@@ -11,7 +11,7 @@ class Game extends React.Component {
 
     constructor(props) {
         super(props);
-        debugger;
+
         this.state = {
             history: [{
                 squares: Array(9).fill(null)
@@ -48,6 +48,7 @@ class Game extends React.Component {
     render() {
         
         // TODO redirect to login if not fill credentional
+        // debugger;
         // const { redirect } = this.props.redirect;
 
         // if (redirect == undefined || redirect == null || redirect == true) {
