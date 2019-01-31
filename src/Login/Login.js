@@ -92,7 +92,7 @@ class Login extends Component {
                             style={style.RaisedButton}
                             onClick={(event) => this.handleClick(event)}
                         />
-                        {this.state.redirect}
+                        {this.props}
 
                     </div>
                 </MuiThemeProvider>
