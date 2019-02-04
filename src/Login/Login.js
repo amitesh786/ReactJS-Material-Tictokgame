@@ -92,7 +92,6 @@ class Login extends Component {
                             style={style.RaisedButton}
                             onClick={(event) => this.handleClick(event)}
                         />
-                        {this.props}
 
                     </div>
                 </MuiThemeProvider>
