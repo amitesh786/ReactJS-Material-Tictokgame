@@ -18,7 +18,8 @@ class Game extends React.Component {
                 squares: Array(9).fill(null)
             }],
             stepNumber: 0,
-            xIsNext: true
+            xIsNext: true,
+            title: 'Tic Tok WebApp'
         };
     }
 
@@ -85,7 +86,7 @@ class Game extends React.Component {
                 <MuiThemeProvider>
 
                     <div>
-                        <NavBar />
+                        <NavBar >{this.state.title}</NavBar>
 
                         <Button
                             color="primary"

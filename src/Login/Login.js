@@ -16,7 +16,8 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            redirect: false
+            redirect: false,
+            title: 'Login WebApp'
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -66,7 +67,7 @@ class Login extends Component {
             <div style={styles.MuiTheme}>
                 <MuiThemeProvider >
                     <div>
-                        <NavBar />
+                        <NavBar >{this.state.title}</NavBar>
                         <Error />
 
                         <TextField style={styles.TextField}
