@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -55,7 +55,7 @@ class Game extends React.Component {
         
         // Redirect to login if not fill credentional
         const { action } = this.props.history;
-        if (action == "POP") {
+        if (action === "POP") {
             return <Redirect to='/login' />;
         }
 

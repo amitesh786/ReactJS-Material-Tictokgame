@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import './index.css';
 
 import App from './App';
 import Game from './Game/Game';
-import Error from './Login/Error';
+// import Error from './Login/Error';
 
 // import PageNotFound from './PageNotFound/PageNotFound';
 

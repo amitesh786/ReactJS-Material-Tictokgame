@@ -40,10 +40,10 @@ class NavBar extends React.Component {
 
 const styles = {
     appBar: {
-        "background-color": "rgb(31,188,210)"
+        "backgroundColor": "rgb(31,188,210)"
     },
     leftShift: {
-        "padding-left": "38%"
+        "paddingLeft": "38%"
     }
 };
 
