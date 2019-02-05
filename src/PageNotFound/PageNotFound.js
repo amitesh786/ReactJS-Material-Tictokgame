@@ -1,27 +1,37 @@
 import React from 'react';
-
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import AppBar from '@material-ui/core/AppBar';
 
-const PageNotFound = () => (
+import NavBar from '../Header/NavBar';
 
-    <div style={style.MuiTheme}>
-        <MuiThemeProvider>
+class PageNotFound extends React.Component {
 
-            <div>
-                <AppBar
-                    title="Page Not Found"
-                />
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            title: "Page Not Found"
+        };
+    }
+
+    render() {
+        return (
+            <div style={style.MuiTheme}>
+                <MuiThemeProvider>
+
+                    <div>
+                        <NavBar >{this.state.title}</NavBar>
+                    </div>
+
+                    <div style={style.container}>
+                        <h1 as="h3">404</h1>
+                        <p>Uh oh! Are you sure you wanted to go here?</p>
+                    </div>
+
+                </MuiThemeProvider>
             </div>
-
-            <div style={style.container}>
-                <h1 as="h1">404</h1>
-                <p>Uh oh! Are you sure you wanted to go here?</p>
-            </div>
-            
-        </MuiThemeProvider>
-    </div>
-);
+        )
+    }
+} 
 
 const style = {
 
@@ -35,7 +45,5 @@ const style = {
         'margin-top': '200px',
         'text-align': 'center'
     }
-
 };
-
 export default PageNotFound;
