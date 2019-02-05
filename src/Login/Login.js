@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Error, { openSnackbar } from './Error';
 
 import { Redirect } from 'react-router-dom';
+// import MenuIcon from 'material-ui/icons/Menu';
 
 class Login extends Component {
 
@@ -42,7 +44,6 @@ class Login extends Component {
 
         //  Validation for username & password
         if ((self.state.username === 'amitesh23' && self.state.password === 'password')) {
-
             openSnackbar({ message: 'Successfully...!!!' });
             self.setState({ redirect: true });
             return;
@@ -58,7 +59,6 @@ class Login extends Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            this.props = this.state;
             return <Redirect to='/game' />;
         }
 
@@ -68,7 +68,9 @@ class Login extends Component {
                     <div>
                         <AppBar
                             title="Login WebApp"
-                        />
+                        >
+                            {/* <MenuIcon style={style.menuIcon} /> */}
+                        </AppBar>
                         <Error />
 
                         <TextField style={style.TextField}
@@ -116,7 +118,12 @@ const style = {
     TextField: {
         width: '50%',
         left: '25%'
+    },
+
+    menuIcon: {
+        display: 'none'
     }
+
 };
 
 

@@ -34,11 +34,3 @@ See the section about [deployment](https://github.com/amitesh786/ReactJS-Materia
 * By default 
 ```username - amitesh23```
 ```password - password```
-
-## Running End-to-End(E2E) Tests
-For testing we are using Nightwatch.js. Nightwatch.js is an easy to use Node.js based End-to-End (E2E) testing solution for browser based apps and websites. It uses the powerful W3C WebDriver API to perform commands and assertions on DOM elements.You can find a full documentation of the framework using directly their website http://nightwatchjs.org/.
-
-#### Requirements
-In order to run the tests you need have an up and running application server with a Frontend application deployed, but also a browser in order to use for the tests. The default values are
-- Url: http://localhost:3000/
-- Browser: Chrome

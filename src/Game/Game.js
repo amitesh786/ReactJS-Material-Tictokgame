@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import Button from 'material-ui/core/Button';
+
 import AppBar from 'material-ui/AppBar';
 
 import Board from '../Board/Board';
 import '../Game/Game.css';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Game extends React.Component {
 
@@ -47,13 +49,11 @@ class Game extends React.Component {
 
     render() {
         
-        // TODO redirect to login if not fill credentional
-        // debugger;
-        // const { redirect } = this.props.redirect;
-
-        // if (redirect == undefined || redirect == null || redirect == true) {
-        //     return <Redirect to='/login' />;
-        // }
+        // Redirect to login if not fill credentional
+        const { action } = this.props.history;
+        if (action == "POP") {
+            return <Redirect to='/login' />;
+        }
 
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -82,9 +82,9 @@ class Game extends React.Component {
                 <MuiThemeProvider>
 
                     <div>
-                        <AppBar
-                            title="Tic Tok Game"
-                        />
+                        <AppBar title="Tic Tok Game" >
+                            <button >Logout</button>
+                        </AppBar>
                     </div>
 
                     <div className="game">
