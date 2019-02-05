@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import Button from 'material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 
-import RaisedButton from 'material-ui/RaisedButton';
-
-import IconButton from 'material-ui/IconButton';
-
-
-import AppBar from 'material-ui/AppBar';
-
+import NavBar from '../Header/NavBar';
 import Board from '../Board/Board';
 import '../Game/Game.css';
-import { Redirect } from 'react-router-dom';
 
 class Game extends React.Component {
 
@@ -87,22 +81,25 @@ class Game extends React.Component {
         }
 
         return (
-            <div style={style.MuiTheme}>
+            <div style={styles.MuiTheme}>
                 <MuiThemeProvider>
 
                     <div>
-                        <AppBar title="Tic Tok Game" >
+                        <NavBar />
 
-                        <IconButton/> 
-
-                            <RaisedButton
-                                label="Logout"
-                                primary={true}
-                                style={style.RaisedButton}
-                                onClick={() => this.logout()}
-                            />
-
-                        </AppBar>
+                        <Button
+                            color="primary"
+                            style={styles.RaisedButton}
+                            onClick={() => this.logout()}
+                            >
+                            <svg 
+                                style={styles.logoutBtn}
+                                xmlns=" http://www.w3.org/2000/svg" 
+                                width="24" height="24" 
+                                viewBox="0 0 24 24">
+                                    <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z" />
+                                </svg>
+                        </Button>
                     </div>
 
                     <div className="game">
@@ -146,19 +143,21 @@ function calculateWinner(squares) {
     return null;
 }
 
-const style = {
+const styles = {
 
     RaisedButton: {
-        margin: 15,
-        // left: '40%',
         float: "right",
-        // position: 'relative'
+        bottom: "50px"
     },
 
     MuiTheme: {
         width: '50%',
         left: '25%',
-        position: 'absolute'
+        position: 'relative'
+    },
+
+    logoutBtn: {
+        fill: "rgb(255,255,255)"
     }
 };
 

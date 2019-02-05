@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
+import { Redirect } from 'react-router-dom';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import Error, { openSnackbar } from './Error';
-import IconButton from 'material-ui/IconButton';
 
-import { Redirect } from 'react-router-dom';
-// import MenuIcon from 'material-ui/icons/Menu';
+import Error, { openSnackbar } from './Error';
+import NavBar from '../Header/NavBar';
 
 class Login extends Component {
 
@@ -68,11 +66,7 @@ class Login extends Component {
             <div style={styles.MuiTheme}>
                 <MuiThemeProvider >
                     <div>
-                        <AppBar
-                            title="Login WebApp"
-                        >
-                        
-                        </AppBar>
+                        <NavBar />
                         <Error />
 
                         <TextField style={styles.TextField}
@@ -105,9 +99,7 @@ class Login extends Component {
 }
 
 const styles = {
-    iconBtn: {
-        display: 'none! important'
-    },
+    
     RaisedButton : {
         margin: 15,
         left: '40%',
@@ -130,7 +122,4 @@ const styles = {
     }
 
 };
-
-
-
 export default Login;
