@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Error, { openSnackbar } from './Error';
+import IconButton from 'material-ui/IconButton';
 
 import { Redirect } from 'react-router-dom';
 // import MenuIcon from 'material-ui/icons/Menu';
@@ -63,24 +64,25 @@ class Login extends Component {
         }
 
         return (
-            <div style={style.MuiTheme}>
+            
+            <div style={styles.MuiTheme}>
                 <MuiThemeProvider >
                     <div>
                         <AppBar
                             title="Login WebApp"
                         >
-                            {/* <MenuIcon style={style.menuIcon} /> */}
+                        
                         </AppBar>
                         <Error />
 
-                        <TextField style={style.TextField}
+                        <TextField style={styles.TextField}
                             hintText="Enter your Username"
                             floatingLabelText="Username"
                             onChange={(event, newValue) => this.setState({ username: newValue })}
                         />
                         <br />
 
-                        <TextField style={style.TextField}
+                        <TextField style={styles.TextField}
                             type="password"
                             hintText="Enter your Password"
                             floatingLabelText="Password"
@@ -91,7 +93,7 @@ class Login extends Component {
                         <RaisedButton 
                             label="Submit" 
                             primary={true} 
-                            style={style.RaisedButton}
+                            style={styles.RaisedButton}
                             onClick={(event) => this.handleClick(event)}
                         />
 
@@ -102,7 +104,10 @@ class Login extends Component {
     }
 }
 
-const style = {
+const styles = {
+    iconBtn: {
+        display: 'none! important'
+    },
     RaisedButton : {
         margin: 15,
         left: '40%',

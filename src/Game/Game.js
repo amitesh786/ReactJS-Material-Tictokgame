@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import Button from 'material-ui/core/Button';
 
+import RaisedButton from 'material-ui/RaisedButton';
+
+import IconButton from 'material-ui/IconButton';
+
+
 import AppBar from 'material-ui/AppBar';
 
 import Board from '../Board/Board';
@@ -47,6 +52,10 @@ class Game extends React.Component {
         });
     }
 
+    logout() {
+        window.location.reload();
+    }
+
     render() {
         
         // Redirect to login if not fill credentional
@@ -83,7 +92,16 @@ class Game extends React.Component {
 
                     <div>
                         <AppBar title="Tic Tok Game" >
-                            <button >Logout</button>
+
+                        <IconButton/> 
+
+                            <RaisedButton
+                                label="Logout"
+                                primary={true}
+                                style={style.RaisedButton}
+                                onClick={() => this.logout()}
+                            />
+
                         </AppBar>
                     </div>
 
@@ -129,7 +147,14 @@ function calculateWinner(squares) {
 }
 
 const style = {
-    
+
+    RaisedButton: {
+        margin: 15,
+        // left: '40%',
+        float: "right",
+        // position: 'relative'
+    },
+
     MuiTheme: {
         width: '50%',
         left: '25%',
