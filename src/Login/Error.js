@@ -44,9 +44,9 @@ class Error extends Component {
                 autoHideDuration={5000}
                 onClose={this.handleSnackbarClose}
                 open={this.state.open}
-                SnackbarContentProps={{
-                    'aria-describedby': 'snackbar-message-id',
-                }}
+                // SnackbarContentProps={{
+                //     'aria-describedby': 'snackbar-message-id',
+                // }}
             />
         );
     }

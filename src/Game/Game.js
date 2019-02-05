@@ -83,8 +83,8 @@ class Game extends React.Component {
 
         return (
             <div style={styles.MuiTheme}>
-                <MuiThemeProvider>
 
+                <MuiThemeProvider>
                     <div>
                         <NavBar >{this.state.title}</NavBar>
 
