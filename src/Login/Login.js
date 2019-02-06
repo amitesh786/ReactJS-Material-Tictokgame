@@ -62,15 +62,23 @@ class Login extends Component {
             return <Redirect to='/game' />;
         }
 
+        // Div's Id dom
+        const txtLoginId = "txtLoginId";
+        const txtPasswordId = "txtPasswordId";
+
+        const errorTextId = "errorTextId";
+        const submitBtnId = "submitBtnId";
+
         return (
             
             <div style={styles.MuiTheme}>
                 <MuiThemeProvider >
                     <div>
                         <NavBar >{this.state.title}</NavBar>
-                        <Error />
+                        <Error id={errorTextId} />
 
                         <TextField style={styles.TextField}
+                            id={txtLoginId}
                             hintText="Enter your Username"
                             floatingLabelText="Username"
                             onChange={(event, newValue) => this.setState({ username: newValue })}
@@ -79,6 +87,7 @@ class Login extends Component {
 
                         <TextField style={styles.TextField}
                             type="password"
+                            id={txtPasswordId}
                             hintText="Enter your Password"
                             floatingLabelText="Password"
                             onChange={(event, newValue) => this.setState({ password: newValue })}
@@ -86,6 +95,7 @@ class Login extends Component {
                         <br />
 
                         <RaisedButton 
+                            id={submitBtnId}
                             label="Submit" 
                             primary={true} 
                             style={styles.RaisedButton}

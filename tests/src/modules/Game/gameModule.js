@@ -1,22 +1,24 @@
-var conf = require("../../conf.js");
+// var conf = require("../../conf.js");
 
 // Helpers
-var login = require("../../utils/login.js");
-var logout = require("../../utils/logout.js");
+// var login = require("../../utils/login.js");
+// var logout = require("../../utils/logout.js");
 
 module.exports = {
-    'Does not show the task list if there are no tasks'(client) {
-        client
-            .url('http://localhost:3000')
-            .waitForElementVisible('.header h1', 2000)
-            .expect.element('.main').to.not.be.present;
-        client.end();
-    },
-    'Does not show the footer if there are no tasks'(client) {
-        client
-            .url('http://localhost:3000')
-            .waitForElementVisible('.header h1', 20000)
-            .expect.element('.footer').to.not.be.present;
-        client.end();
-    },
+
+    'Demo test Game': function (browser) {
+        browser.url(browser.launchUrl);
+        browser.waitForElementVisible('body', 5000);
+        browser.pause(2000);
+
+        browser.expect.element('body header').text.to.equal("Login WebApp");
+
+        browser.click('#txtLoginId');
+
+        browser.setValue('#txtLoginId', 'amh23');
+        
+        browser.pause(2000);
+    
+        browser.end();
+    }
 }
