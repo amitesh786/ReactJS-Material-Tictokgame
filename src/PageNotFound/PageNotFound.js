@@ -1,6 +1,5 @@
 import React from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
 import NavBar from '../Header/NavBar';
 
 class PageNotFound extends React.Component {

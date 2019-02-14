@@ -59,5 +59,4 @@ const styles = {
         "paddingLeft": "38%"
     }
 };
-
 export default NavBar;
