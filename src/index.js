@@ -19,6 +19,7 @@ const routing = (
             <Route path="/game" component={Game} />
             {/* <Route path='/*' component={PageNotFound} /> */}
         </div>
+
     </Router>
 )
 

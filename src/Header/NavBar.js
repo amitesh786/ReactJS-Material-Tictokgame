@@ -9,16 +9,29 @@ class NavBar extends React.Component {
         super(props);
 
         this.state = {
-            title: 'Login WebApp'
+            title: 'Login WebApp',
+            seconds: 0
         };
     }
 
+    tick() {
+        this.setState(state => ({
+            seconds: state.seconds + 1
+        }));
+    }
+
     componentDidMount() {
+        this.interval = setInterval(() => this.tick(), 1000);
+
         if (this.props.children) {
             this.setState({
                 title: this.props.children
             });
         }
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
     
     render() {
@@ -29,7 +42,7 @@ class NavBar extends React.Component {
                 <AppBar position="static" style={styles.appBar}>
                     <Toolbar style={styles.leftShift}>
                         <Typography variant="title" color="inherit" >
-                            {title}
+                            {title} - {this.state.seconds}
                         </Typography>
                     </Toolbar>
                 </AppBar>
