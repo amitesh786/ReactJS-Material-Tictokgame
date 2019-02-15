@@ -7,6 +7,7 @@ import Board from '../Board/Board';
 import '../Game/Game.css';
 import calculateWinner from '../CalculateWinner/CalculateWinner';
 import Error, { openSnackbar } from '../Login/Error';
+import DraggableDialog from '../Dialog/DraggableDialog';
 
 class Game extends React.Component {
 
@@ -27,7 +28,7 @@ class Game extends React.Component {
 
         // if step are zero then start the game again
         if (step === 0) {
-            openSnackbar({ message: 'Go to game start.' });
+            openSnackbar({ message: 'Game restart.' });
         }
         
         // Set state parameters for step number and next
@@ -88,47 +89,54 @@ class Game extends React.Component {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
 
-        const errorTextId = "errorTextId";
+        const errorGameTextId = "errorGameText";
 
         return (
-            <div style={styles.MuiTheme}>
+            <div className="game-page">
 
-                <MuiThemeProvider>
-                    <div>
-                        <NavBar >{this.state.title}</NavBar>
-                        <Error id={errorTextId} />
+                <div style={styles.MuiTheme}>
 
-                        <Button
-                            color="primary"
-                            style={styles.RaisedButton}
-                            onClick={() => this.logout()}
+                    <MuiThemeProvider>
+                        <div>
+                            <NavBar >{this.state.title}</NavBar>
+                            <Error id={errorGameTextId} />
+
+                            <Button
+                                color="primary"
+                                style={styles.RaisedButton}
+                                onClick={() => this.logout()}
                             >
-                            <svg 
-                                style={styles.logoutBtn}
-                                xmlns=" http://www.w3.org/2000/svg" 
-                                width="24" height="24" 
-                                viewBox="0 0 24 24">
+                                <svg
+                                    style={styles.logoutBtn}
+                                    xmlns=" http://www.w3.org/2000/svg"
+                                    width="24" height="24"
+                                    viewBox="0 0 24 24">
                                     <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z" />
                                 </svg>
-                        </Button>
-                    </div>
-
-                    <div className="game">
-
-                        <div className="game-board">
-                            <Board
-                                squares={current.squares}
-                                onClick={(i) => this.handleClick(i)}
-                            />
+                            </Button>
                         </div>
 
-                        <div className="game-info">
-                            <div>{status}</div>
-                            <ol>{moves}</ol>
-                        </div>
+                    </MuiThemeProvider>
+                </div>
+
+                <div className="game">
+
+                    <div className="game-board">
+                        <Board
+                            squares={current.squares}
+                            onClick={(i) => this.handleClick(i)}
+                        />
                     </div>
 
-                </MuiThemeProvider>
+                    <div className="game-info">
+                        <div>{status}</div>
+                        <ol>{moves}</ol>
+                    </div>
+                </div>
+
+                <div className="get-data-api" >
+                    <DraggableDialog />
+                </div>
             </div>
         );
     }
@@ -144,7 +152,7 @@ const styles = {
     MuiTheme: {
         width: '50%',
         left: '25%',
-        position: 'relative'
+        position: 'absolute'
     },
 
     logoutBtn: {

@@ -1,9 +1,19 @@
 .game {
-    top: 200%;
-    left: 40%;
+    left: 45%;
     position: absolute;
+    margin-top: 100px;
 }
 
 .game-info {
     margin-left: 20px;
+}
+
+.game-page {
+    position: relative;
+}
+
+.get-data-api {
+    left: 25%;
+    position: absolute;
+    margin-top: 70px;
 }

@@ -118,7 +118,7 @@ const styles = {
     MuiTheme: {
         width: '50%',
         left: '25%',
-        position: 'absolute'    
+        position: 'absolute'
     },
 
     TextField: {

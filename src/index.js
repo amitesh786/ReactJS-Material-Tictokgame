@@ -6,6 +6,8 @@ import './index.css';
 
 import App from './App';
 import Game from './Game/Game';
+import Table from './Table/Table';
+
 // import Error from './Login/Error';
 // import PageNotFound from './PageNotFound/PageNotFound';
 
@@ -16,6 +18,7 @@ const routing = (
         <div>
             <Route path="/" component={App} />
             <Route path="/game" component={Game} />
+            <Route path="/table" component={Table} />
             {/* <Route path='/*' component={PageNotFound} /> */}
         </div>
     </Router>
