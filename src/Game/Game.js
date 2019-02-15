@@ -6,6 +6,7 @@ import NavBar from '../Header/NavBar';
 import Board from '../Board/Board';
 import '../Game/Game.css';
 import calculateWinner from '../CalculateWinner/CalculateWinner';
+import Error, { openSnackbar } from '../Login/Error';
 
 class Game extends React.Component {
 
@@ -23,6 +24,13 @@ class Game extends React.Component {
     }
 
     jumpTo(step) {
+
+        // if step are zero then start the game again
+        if (step === 0) {
+            openSnackbar({ message: 'Go to game start.' });
+        }
+        
+        // Set state parameters for step number and next
         this.setState({
             stepNumber: step,
             xIsNext: (step % 2) === 0,
@@ -80,12 +88,15 @@ class Game extends React.Component {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
 
+        const errorTextId = "errorTextId";
+
         return (
             <div style={styles.MuiTheme}>
 
                 <MuiThemeProvider>
                     <div>
                         <NavBar >{this.state.title}</NavBar>
+                        <Error id={errorTextId} />
 
                         <Button
                             color="primary"
