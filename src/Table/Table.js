@@ -5,6 +5,7 @@ import Error, { openSnackbar } from '../Login/Error';
 import './Table.css';
 import Button from '@material-ui/core/Button';
 import { Redirect } from 'react-router-dom';
+
 const GetAPI = 'https://jsonplaceholder.typicode.com/posts';
 
 class Table extends React.Component {
@@ -15,9 +16,9 @@ class Table extends React.Component {
         this.state = {
             title: 'Data Table',
             data: [],
-            tableRows: [],
             dataTittle: [],
-            dataRows: []
+            dataRows: [],
+            fetchData: []
         };
     }
 
@@ -26,29 +27,41 @@ class Table extends React.Component {
     }
   
     componentDidMount() {
-
         fetch(GetAPI)
         .then(response => response.json())
         .then((data) => {
             this.setState({ data });
+
+            this.setState({
+                fetchData : data,
+                dataTittle: ["Id", "Title", "Body"]
+            });
+            
             openSnackbar({ message: 'Data fetch updated.' });
         });
     }
-    
-    okFunction = (dataRows) => {
 
-        const tableRows = dataRows.map((dataRow) => {
+    thFunction = (dataTittles) => {
+
+        this.dataTittles = dataTittles.map((dataTittle) => {
             return (
-                <tr><td key={dataRow}>
-                    {dataRow}
-                </td>
-                </tr>
+                <th key={dataTittle}>
+                    {dataTittle}
+                </th>
             );
         });
+    }
 
-        this.setState({
-            tableRows: tableRows
-        });
+    trFunction = (dataRows) => {
+        this.tableRows = dataRows.map((dataRow, index) => {
+            return (
+                <tr key={index}>
+                    <td>{dataRow[0]}</td>
+                    <td>{dataRow[1]}</td>
+                    <td>{dataRow[2]}</td>
+                </tr>
+            );
+        });       
     }
 
     render() {
@@ -58,23 +71,18 @@ class Table extends React.Component {
         if (action === "POP") {
             return <Redirect to='/login' />;
         }
+
         const errorTableTextId = "errorTableText";
+        const fetchData = this.state.fetchData;
 
-        debugger;
-
-        const fetchData = this.state.data;
-        const dataTittle = this.setState({
-            dataTittle: ["Id", "Title", "Data"]
-        });
-                
-        const dataRows = [];
         if (fetchData.length > 0) {
+            const dataRows = [];
+            
             for (var i = 0; i < fetchData.length; i++) {
                 dataRows.push([fetchData[i].id, fetchData[i].title, fetchData[i].body]);
+                this.trFunction(dataRows);
             }
-            this.setState({
-                dataRows: this.okFunction(dataRows)
-            });
+            this.thFunction(this.state.dataTittle);
         }
 
         return (
@@ -106,8 +114,8 @@ class Table extends React.Component {
                     <div className="table-content">
 
                         <table>
-                            <tr><th>{this.state.dataTittle} </th></tr>
-                            <tr>{this.state.tableRows}</tr>                            
+                            <tr>{this.dataTittles}</tr>
+                            {this.tableRows}
                         </table>
                     </div>
                     
