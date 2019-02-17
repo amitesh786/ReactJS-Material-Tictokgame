@@ -1,4 +1,4 @@
-This project was bootstrapped with [React WebApp](https://github.com/amitesh786).
+This project was bootstrapped with [React WebApp](https://github.com/amitesh786/ReactJS-Material-Tictokgame).
 
 ## Available Scripts
 
