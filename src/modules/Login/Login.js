@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import Error, { openSnackbar } from './Error';
 import NavBar from '../Header/NavBar';
 
-class Login extends Component {
+export default class Login extends Component {
 
     constructor(props) {
         super(props);
@@ -114,21 +114,16 @@ const styles = {
         left: '40%',
         position: 'relative'
     },
-
     MuiTheme: {
         width: '50%',
         left: '25%',
         position: 'absolute'
     },
-
     TextField: {
         width: '50%',
         left: '25%'
     },
-
     menuIcon: {
         display: 'none'
     }
-
 };
-export default Login;

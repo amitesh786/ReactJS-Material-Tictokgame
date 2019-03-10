@@ -3,7 +3,7 @@ import Square from '../Square/Square';
 import '../Board/Board.css';
 import calculateWinner from '../CalculateWinner/CalculateWinner';
 
-class Board extends React.Component {
+export default class Board extends React.Component {
     
     constructor(props) {
         super(props);
@@ -57,4 +57,3 @@ class Board extends React.Component {
         );
     }
 }
-export default Board;

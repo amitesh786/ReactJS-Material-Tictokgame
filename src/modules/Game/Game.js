@@ -88,7 +88,7 @@ class Game extends React.Component {
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
-
+        
         const errorGameTextId = "errorGameText";
 
         return (

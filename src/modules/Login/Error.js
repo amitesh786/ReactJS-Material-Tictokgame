@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
-
 let openSnackbarFn;
 
-class Error extends Component {
+export default class Error extends Component {
 
     state = {
         open: false,
@@ -44,9 +43,6 @@ class Error extends Component {
                 autoHideDuration={5000}
                 onClose={this.handleSnackbarClose}
                 open={this.state.open}
-                // SnackbarContentProps={{
-                //     'aria-describedby': 'snackbar-message-id',
-                // }}
             />
         );
     }
@@ -55,5 +51,3 @@ class Error extends Component {
 export function openSnackbar({ message }) {
     openSnackbarFn({ message });
 }
-
-export default Error;

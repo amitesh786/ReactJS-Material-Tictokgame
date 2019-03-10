@@ -2,7 +2,7 @@ import React from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import NavBar from '../Header/NavBar';
 
-class PageNotFound extends React.Component {
+export default class PageNotFound extends React.Component {
 
     constructor(props) {
         super(props);
@@ -39,10 +39,8 @@ const style = {
         left: '25%',
         position: 'absolute'
     },
-
     container: {
         'margin-top': '200px',
         'text-align': 'center'
     }
 };
-export default PageNotFound;

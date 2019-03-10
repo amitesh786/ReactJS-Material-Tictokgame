@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Login from '../Login/Login.js';
 
-class App extends Component {
-    render() { 
-        return (
-            <Login />
-        );
-    }
+const App = () => {
+    return (
+        <Login />
+    );
 }
 export default App;

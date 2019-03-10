@@ -18,7 +18,7 @@ function PaperComponent(props) {
     );
 }
 
-class DraggableDialog extends React.Component {
+export default class DraggableDialog extends React.Component {
 
     constructor(props) {
         super(props);
@@ -87,5 +87,3 @@ class DraggableDialog extends React.Component {
         );
     }
 }
-
-export default DraggableDialog;

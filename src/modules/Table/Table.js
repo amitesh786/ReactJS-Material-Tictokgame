@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 
 const GetAPI = 'https://jsonplaceholder.typicode.com/posts';
 
-class Table extends React.Component {
+export default class Table extends React.Component {
 
     constructor(props) {
         super(props);
@@ -65,7 +65,6 @@ class Table extends React.Component {
     }
 
     render() {
-
         // Redirect to login if not fill credentional
         const { action } = this.props.history;
         if (action === "POP") {
@@ -131,15 +130,12 @@ const styles = {
         float: "right",
         bottom: "50px"
     },
-
     MuiTheme: {
         width: '50%',
         left: '25%',
         position: 'absolute'
     },
-    
     logoutBtn: {
         fill: "rgb(255,255,255)"
     }
 };
-export default Table;

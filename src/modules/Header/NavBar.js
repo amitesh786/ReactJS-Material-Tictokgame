@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
 
     constructor(props) {
         super(props);
@@ -35,8 +35,8 @@ class NavBar extends React.Component {
     }
     
     render() {
-
         const { title } = this.state;
+
         return (
             <div>
                 <AppBar position="static" style={styles.appBar}>
@@ -47,7 +47,7 @@ class NavBar extends React.Component {
                     </Toolbar>
                 </AppBar>
             </div>
-        )    
+        )
     }
 } 
 
@@ -59,4 +59,3 @@ const styles = {
         "paddingLeft": "38%"
     }
 };
-export default NavBar;
